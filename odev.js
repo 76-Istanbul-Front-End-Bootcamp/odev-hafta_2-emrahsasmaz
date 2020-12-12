@@ -10,7 +10,7 @@ var person = {
   }
 }
 
-var messageFunc = person.message
+var messageFunc = person.message.bind(person);
 messageFunc();
 
 
@@ -25,14 +25,15 @@ messageFunc();
 var numbers = {
   numbers: [[10,20,30], 2],
   multiply: function(){
-    this.numbers[0].map(function(number, numberIndex){
+    this.numbers[0].map((number, numberIndex) => {
         const result = number * this.numbers[1];
         console.log(result)
-    })
+    });
   }
 };
 
 numbers.multiply();
+
 
 
 /* 
@@ -43,7 +44,30 @@ numbers.multiply();
   Ornek : isValidName(" J ohn") false donmeli
 */
 function isValidName(name){
+  if(typeof name!="string") 
+  {
+    return false; 
+  }
 
+  if(name.length <= 1 )
+  {
+    return false;
+  }
+  
+  if(!isNaN(name)) 
+  {
+    return false;
+  }
+
+  let validName = name.trim().split(" ");
+  for(var i = 0 ; i <validName.length; i++) 
+  {
+    if(validName[i].length === 1)
+    
+    {return false;}
+    
+
+  }
 }
 
 /*
@@ -59,7 +83,7 @@ function isValidName(name){
   Ornek: katilimSaati("5", "30") 150 sonucunu vermelidir.
 */
 function katilimSaati(dersSayisi, dersSuresi){
-
+/*Herhangi bir yorum yapamadığımdam çözümleyemedim */
 }
 
 
